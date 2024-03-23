@@ -23,7 +23,8 @@ class Order(models.Model):
     updated_at=models.DateTimeField(auto_now=True)
 #model for ordred item
 class OrderedItem(models.Model):
+
     product=models.ForeignKey(Product,related_name='added_carts',on_delete=models.SET_NULL,null=True)
     quantity=models.IntegerField(default=1)
-    owner=models.ForeignKey(Order,on_delete=models.CASCADE,related_name='added_items')
+    quantity=models.ForeignKey(Order,on_delete=models.CASCADE,related_name='added_items')
 
